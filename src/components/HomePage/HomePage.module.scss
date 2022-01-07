@@ -1,0 +1,56 @@
+.whatIsContainer {
+    padding-top: 100px;
+    // display: flex;
+
+  .pictureCol {
+      img{
+          border: 3px solid black;
+          padding: 10px;
+          border-radius: 10px;
+      }
+  }
+  .teamDiscription {
+      text-align: center;
+    img {
+      width: 100px;
+    }
+    h5{
+        span{
+            // display: block;
+            animation: alternateSpan 2s ease-in-out infinite;
+        }
+    }
+  }
+  .lastCol{
+      border-radius: 10px;
+      text-align: center;
+      h5{
+          margin-bottom: 40px;
+      }
+      a{
+          opacity: 80%;
+          background: linear-gradient(to right, rgb(123, 198, 204), rgb(190, 147, 197));
+          border: 1px solid white;
+          border-radius: 5px;
+          font-weight: 800;
+          padding: 10px;
+          margin-top: 15px;
+          color: black;
+          &:hover{
+              color: white;
+          }
+      }
+  }
+}
+
+@keyframes alternateSpan {
+    0%{
+        color: white;
+    }
+    50%{
+        display: black;
+    }
+    100%{
+        display: white;
+    }
+}

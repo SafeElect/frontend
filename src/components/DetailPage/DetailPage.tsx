@@ -36,8 +36,8 @@ const DetailPage = (props) => {
       >
         <h4> {title} </h4>
         <div>
-          {/* <Link href={"/"}></Link>
-          <Link href={"/"} ></Link> */}
+          {/* {/* <Link href={"/"}></Link> */}
+          {/* <Link href={"/"} >Home</Link>  */}
         </div>
       </div>
 

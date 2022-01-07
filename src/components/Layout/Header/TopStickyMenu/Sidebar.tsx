@@ -5,7 +5,10 @@ import Link from "next/link";
 import SocialMediaIcons from "../../../Common/SocialMediaIcons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faBitcoin,
   faFacebook,
+  faGithub,
+  faGoogle,
   faInstagram,
   faLinkedin,
   faTwitter,
@@ -17,61 +20,61 @@ const Sidebar = (props) => {
     <Menu>
       <Link href="/kurumsal">
         <a className="menu-item" >
-          {/* {t.corporate} */}
+          Home
         </a>
       </Link>
       <Link href="/hizmetlerimiz">
         <a className="menu-item" >
-          {/* {t.ourServices} */}
+          Candidates
         </a>
       </Link>
       <Link href="/referanslarimiz">
         <a className="menu-item" >
-          {/* {t.ourReferences} */}
+          How To Vote
         </a>
       </Link>
       <Link href="/iletisim">
         <a className="menu-item" >
-          {/* {t.contact} */}
+          SafeElect
         </a>
       </Link>
 
       <Link href="/insanKaynaklari">
         <a className="menu-item" target="_blank">
-          {/* {t.humanResources} */}
+          Login
         </a>
       </Link>
 
       <Link href="/">
-        <Image src="/images/pointo-small-logo.jpg" />
+        <Image src="/images/logo/vote.png" />
       </Link>
       <div style={{ marginTop: "40" }} className={"sidebar-social-icons"}>
-        <a href="https://www.instagram.com/pointocomtr/" target="_blank">
+        <a href="https://www.binance.com/" target="_blank">
           <FontAwesomeIcon
             color="#2f3d5b"
             className="social-icon"
-            icon={faInstagram}
+            icon={faGoogle}
             size={"lg"}
           />
         </a>
-        <a href="https://www.facebook.com/pointocomtr" target="_blank">
+        <a href="https://github.com/SafeElectr" target="_blank">
           <FontAwesomeIcon
             color="#2f3d5b"
             className="social-icon"
-            icon={faFacebook}
+            icon={faGithub}
             size={"lg"}
           />
         </a>
-        <a href="https://twitter.com/pointocomtr" target="_blank">
+        <a href="https://github.com/SafeElect/smart_contracts/blob/main/SafeElect.sol" target="_blank">
           <FontAwesomeIcon
             // b color="#1DA1F2"
             color="#2f3d5b"
             className="social-icon"
-            icon={faTwitter}
+            icon={faBitcoin}
             size={"lg"}
           />
         </a>
-        <a href="https://www.linkedin.com/company/pointo1" target="_blank">
+        <a href="https://www.linkedin.com/in/syed-muhammad-ali-zaidi-0249b7155/" target="_blank">
           <FontAwesomeIcon
             // color="#0072b1"
             color="#2f3d5b"
