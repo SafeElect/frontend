@@ -5,36 +5,36 @@ import { Col } from "react-bootstrap";
 const FooterNavigationColumn = () => {
   return (
     <Col md={3}>
-      {/* <h5>{t.navigation}</h5> */}
+      <h5>Links</h5>
 
       <ul id="navigation">
-        <Link href="/hakkimizda">
+        <Link href="/">
         <li>
-            {/* {t.aboutUs} */}
+            Home
             <span></span>
           </li>
         </Link>
-        <Link href="/kurumsal">
+        <Link href="/candidates">
           <li>
-            {/* {t.corporate} */}
+            Candidates
             <span></span>
           </li>
         </Link>
-        <Link href="/hizmetlerimiz">
+        <Link href="/howtovote">
           <li>
             {/* {t.ourServices} */}
+            How To Vote
+          </li>
+        </Link>
+        <Link href="/safeelect">
+          <li>
+            SafeElect
             <span></span>
           </li>
         </Link>
-        <Link href="/referanslarimiz">
+        <Link href="/login">
           <li>
-            {/* {t.ourReferences} */}
-            <span></span>
-          </li>
-        </Link>
-        <Link href="/insanKaynaklari">
-          <li>
-            {/* {t.humanResources} */}
+            Login
             <span></span>
           </li>
         </Link>

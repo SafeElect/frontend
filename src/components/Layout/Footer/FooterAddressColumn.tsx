@@ -4,11 +4,10 @@ import { Col } from "react-bootstrap";
 const FooterAddressColumn = () => {
   return (
     <Col md={3}>
-      {/* <h5>{t.mainOffice} </h5> */}
-      {/* <p>
-        "Bilkent Cyberpark Tepe Binası" Üniversiteler Mah. Beytepe Lodumlu Köy
-        Yolu Cad. No : 5/B07, 06800 Çankaya/Ankara
-      </p> */}
+      <h5>Address </h5>
+      <p>
+        Bilkent University, Üniversiteler Mah. 06800 Çankaya/Ankara
+      </p>
       {/* <h5>{t.istanbulOffice}</h5> */}
       {/* <p>
         Nida Kule Göztepe, Merdivenköy Mh., Bora Sokak No:1 Kat:7 34732 Kadıköy/

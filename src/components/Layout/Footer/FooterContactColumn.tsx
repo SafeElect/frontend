@@ -7,34 +7,34 @@ import { Col } from "react-bootstrap";
 const FooterContactColumn = () => {
   return (
     <Col md={3}>
-      {/* <h5>{t.contactUs}</h5> */}
+      <h5>Contact</h5>
 
       <p className="footer-email">
-        {/* {t.doYouHaveQuestion} */}
+        Do you have a question?
         <br />
-        <Link href="mailto:info@pointo.com.tr">
+        <Link href="mailto:Muhammad.raza@ug.bilkent.edu.tr">
           <span>
-            <h6 style={{display: "inline-block"}}>info@pointo.com.tr</h6>
+            <h6 style={{display: "inline-block"}}>Muhammad.raza@ug.bilkent.edu.tr</h6>
           </span>
         </Link>
       </p>
 
       {/* <h5>{t.telephone}</h5> */}
       <p className="footer-phone">
-      <Link href={"tel:+908503464737"}>
+      <Link href={"tel:+905538448565"}>
         <span>
           <FontAwesomeIcon icon={faPhoneAlt} size={"lg"} />
-          <h6 style={{display: "inline-block"}}>+90 850 346 47 37</h6>
+          <h6 style={{display: "inline-block"}}>+90 553 844 85 65</h6>
         </span>
       </Link>
       </p>
 
       {/* <h5>{t.fax}</h5> */}
       <p className="footer-fax">
-      <Link href={"tel:+90 850 346 47 38"}>
+      <Link href={"tel:+905538448565"}>
         <span>
           <FontAwesomeIcon icon={faPhoneAlt} size={"lg"} />
-          <h6 style={{display: "inline-block"}}>+90 850 346 47 38</h6>
+          <h6 style={{display: "inline-block"}}>+90 553 844 85 65</h6>
         </span>
       </Link>
       </p>

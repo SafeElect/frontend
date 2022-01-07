@@ -18,34 +18,34 @@ const SocialMediaIcons = (props) => {
   const { size, ...others } = props;
   return (
     <Fragment>
-      <a href="https://www.instagram.com/pointocomtr/" target="_blank">
+      <a href="https://www.binance.com/" target="_blank">
         <FontAwesomeIcon
           className="social-icon"
-          icon={socialIcons.faInstagram}
+          icon={socialIcons.faGoogle}
           size={size ? size : "lg"}
           {...others}
         />
       </a>
 
-      <a href="https://www.facebook.com/pointocomtr" target="_blank">
+      <a href="https://github.com/SafeElect" target="_blank">
         <FontAwesomeIcon
           className="social-icon"
-          icon={socialIcons.faFacebook}
+          icon={socialIcons.faGithub}
           size={size ? size : "lg"}
           {...others}
         />
       </a>
 
-      <a href="https://twitter.com/pointocomtr" target="_blank">
+      <a href="https://github.com/SafeElect/smart_contracts/blob/main/SafeElect.sol" target="_blank">
         <FontAwesomeIcon
           className="social-icon"
-          icon={socialIcons.faTwitter}
+          icon={socialIcons.faBitcoin}
           size={size ? size : "lg"}
           {...others}
         />
       </a>
 
-      <a href="https://www.linkedin.com/company/pointo1" target="_blank">
+      <a href="https://www.linkedin.com/in/syed-muhammad-ali-zaidi-0249b7155/" target="_blank">
         <FontAwesomeIcon
           className="social-icon"
           icon={socialIcons.faLinkedin}

@@ -20,9 +20,6 @@ const Home: NextPage = () => {
             <h1 className={styles.title}>Main Page</h1>
           </main>
 
-          <footer className={styles.footer}>
-            <h1>Footer</h1>
-          </footer>
         </div>
     </Layout>
   );

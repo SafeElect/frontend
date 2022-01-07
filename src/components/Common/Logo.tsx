@@ -8,8 +8,8 @@ const Logo = props => {
     } = props;
 
     return isLight
-        ? <Image src={"/images/pointo-light.png"} {...others} />
-        : <Image src={"/images/pointo-dark.png"} {...others} />;
+        ? <Image src={"/images/logo/vote.png"} {...others} />
+        : <Image src={"/images/logo/vote.png"} {...others} />;
 };
 
 export default Logo;

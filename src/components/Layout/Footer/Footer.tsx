@@ -22,7 +22,7 @@ const Footer = () => {
           id="footer-logo-section"
         >
           <Link href="/">
-            <Logo isLight={true} width="138px" height="44px" />
+            <Logo isLight={true} />
           </Link>
         </Container>
 

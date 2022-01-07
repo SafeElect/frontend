@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <Fragment>
-      <TopBar isSticky={isSticky} />
+      {/* <TopBar isSticky={isSticky} /> */}
       <TopStickyMenu isSticky={isSticky} />
     </Fragment>
   );

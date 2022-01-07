@@ -6,10 +6,10 @@ import SocialMediaIcons from "../../Common/SocialMediaIcons";
 const FooterWhoAreWeColumn = () => {
   return (
     <Col md={3} style={{marginBottom:"15px"}}>
-      {/* <h5>{t.whoAreWe}</h5> */}
+      <h5>About Us</h5>
       
       <p>
-        {/* {t.setOutToEnrich}     <br/><Link href="/kurumsal"><a  style={{color:"white", fontWeight:"bold"}}>{t.readMore}</a></Link> */}
+        SafeElect is a state-of-the art Digital Election System based on the Binance Smart Chain<br/>
       </p>
 
 
