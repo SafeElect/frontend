@@ -14,11 +14,11 @@ import Link from "next/link";
 //     return <FontAwesomeIcon icon={icon} {...others} />
 // };
 
-const SocialMediaIcons = (props) => {
+const SocialMediaIcons = (props:any) => {
   const { size, ...others } = props;
   return (
     <Fragment>
-      <a href="https://www.binance.com/" target="_blank">
+      <a href="https://www.binance.com/" target="_blank" rel="noreferrer">
         <FontAwesomeIcon
           className="social-icon"
           icon={socialIcons.faGoogle}
@@ -27,7 +27,7 @@ const SocialMediaIcons = (props) => {
         />
       </a>
 
-      <a href="https://github.com/SafeElect" target="_blank">
+      <a href="https://github.com/SafeElect" target="_blank" rel="noreferrer">
         <FontAwesomeIcon
           className="social-icon"
           icon={socialIcons.faGithub}
@@ -36,7 +36,7 @@ const SocialMediaIcons = (props) => {
         />
       </a>
 
-      <a href="https://github.com/SafeElect/smart_contracts/blob/main/SafeElect.sol" target="_blank">
+      <a href="https://github.com/SafeElect/smart_contracts/blob/main/SafeElect.sol" target="_blank" rel="noreferrer">
         <FontAwesomeIcon
           className="social-icon"
           icon={socialIcons.faBitcoin}
@@ -45,7 +45,7 @@ const SocialMediaIcons = (props) => {
         />
       </a>
 
-      <a href="https://www.linkedin.com/in/syed-muhammad-ali-zaidi-0249b7155/" target="_blank">
+      <a href="https://www.linkedin.com/in/syed-muhammad-ali-zaidi-0249b7155/" target="_blank" rel="noreferrer">
         <FontAwesomeIcon
           className="social-icon"
           icon={socialIcons.faLinkedin}

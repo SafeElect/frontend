@@ -15,32 +15,32 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 
-const Sidebar = (props) => {
+const Sidebar = (props:any) => {
   return (
     <Menu>
       <Link href="/kurumsal">
-        <a className="menu-item" >
+        <a className="menu-item" rel="noreferrer">
           Home
         </a>
       </Link>
       <Link href="/hizmetlerimiz">
-        <a className="menu-item" >
+        <a className="menu-item" rel="noreferrer">
           Candidates
         </a>
       </Link>
       <Link href="/referanslarimiz">
-        <a className="menu-item" >
+        <a className="menu-item" rel="noreferrer">
           How To Vote
         </a>
       </Link>
       <Link href="/iletisim">
-        <a className="menu-item" >
+        <a className="menu-item" rel="noreferrer">
           SafeElect
         </a>
       </Link>
 
       <Link href="/insanKaynaklari">
-        <a className="menu-item" target="_blank">
+        <a className="menu-item" target="_blank" rel="noreferrer">
           Login
         </a>
       </Link>
@@ -49,7 +49,7 @@ const Sidebar = (props) => {
         <Image src="/images/logo/vote.png" />
       </Link>
       <div style={{ marginTop: "40" }} className={"sidebar-social-icons"}>
-        <a href="https://www.binance.com/" target="_blank">
+        <a href="https://www.binance.com/" target="_blank" rel="noreferrer">
           <FontAwesomeIcon
             color="#2f3d5b"
             className="social-icon"
@@ -57,7 +57,7 @@ const Sidebar = (props) => {
             size={"lg"}
           />
         </a>
-        <a href="https://github.com/SafeElectr" target="_blank">
+        <a href="https://github.com/SafeElectr" target="_blank" rel="noreferrer">
           <FontAwesomeIcon
             color="#2f3d5b"
             className="social-icon"
@@ -65,7 +65,7 @@ const Sidebar = (props) => {
             size={"lg"}
           />
         </a>
-        <a href="https://github.com/SafeElect/smart_contracts/blob/main/SafeElect.sol" target="_blank">
+        <a href="https://github.com/SafeElect/smart_contracts/blob/main/SafeElect.sol" target="_blank" rel="noreferrer">
           <FontAwesomeIcon
             // b color="#1DA1F2"
             color="#2f3d5b"
@@ -74,7 +74,7 @@ const Sidebar = (props) => {
             size={"lg"}
           />
         </a>
-        <a href="https://www.linkedin.com/in/syed-muhammad-ali-zaidi-0249b7155/" target="_blank">
+        <a href="https://www.linkedin.com/in/syed-muhammad-ali-zaidi-0249b7155/" target="_blank" rel="noreferrer">
           <FontAwesomeIcon
             // color="#0072b1"
             color="#2f3d5b"

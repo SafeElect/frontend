@@ -20,7 +20,7 @@ const WhatIs = () => {
             A project of this magnitude needs a good team behind it! Lucky for
             us, the developers behind SafeElect are innovative, bright, problem
             solvers and the best at what they do! To top that off, the advisor
-            for the team is CTIS's very own Dr. Seyid Amjad Ali, who need no
+            for the team is CTISs very own Dr. Seyid Amjad Ali, who need no
             introduction!
           </p>
         </Col>
@@ -67,7 +67,7 @@ const WhatIs = () => {
             will win the election!
             <br></br>
             <br></br>
-            The Binance Smart Chain offer the market's best features such as
+            The Binance Smart Chain offer the markets best features such as
             very quick transactions, cheaper transactions, secure transactions
             and most importantnly every thing is open to public!
           </p>
@@ -123,7 +123,6 @@ const WhatIs = () => {
             marginWidth={0}
             marginHeight={0}
             frameBorder={0}
-            border={0}
             style={{ border: 0, margin: 0, padding: 0 }}
           ></iframe>
         </div>
@@ -142,6 +141,7 @@ const WhatIs = () => {
           <a
             href="https://coinlib.io"
             target="_blank"
+            rel="noreferrer"
             style={{
               fontWeight: 500,
               color: "#FFFFFF",

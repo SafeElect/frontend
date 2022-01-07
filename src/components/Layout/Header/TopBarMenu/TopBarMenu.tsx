@@ -7,7 +7,7 @@ import SocialMediaIcons from "../../../Common/SocialMediaIcons";
 
 
 
-const TopBarMenu = ({ isSticky }) => {
+const TopBarMenu = ({isSticky} :{isSticky:any} ) => {
 
 
 
