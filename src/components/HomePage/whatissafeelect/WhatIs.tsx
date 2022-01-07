@@ -7,8 +7,8 @@ import styles from "../HomePage.module.scss";
 const WhatIs = () => {
   return (
     <Container className={styles.whatIsContainer}>
-      <div className="d-flex">
-        <Col xl={{ span: 5 }} lg={{ span: 5 }} className={styles.pictureCol}>
+      <div className="d-xl-flex d-lg-flex d-md-flex d-sm-block d-block">
+        <Col xl={{ span: 5 }} lg={{ span: 5 }} md={{span:12}} className={styles.pictureCol}>
           <Image className="w-100" src="/images/HomePage/Team2.jpg"></Image>
         </Col>
         <Col xl={{ span: 5, offset: 2 }} className={styles.teamDiscription}>
@@ -25,7 +25,7 @@ const WhatIs = () => {
           </p>
         </Col>
       </div>
-      <div className="d-flex" style={{ marginTop: 200 }}>
+      <div className="d-xl-flex d-lg-flex d-md-flex d-sm-block d-block" style={{ marginTop: 200 }}>
         <Col xl={{ span: 5, offset: 0 }} className={styles.teamDiscription}>
           <Image src="/images/HomePage/handvote.gif"></Image>
           <h5>
@@ -49,7 +49,7 @@ const WhatIs = () => {
         </Col>
       </div>
 
-      <div className="d-flex" style={{ marginTop: 200 }}>
+      <div className="d-xl-flex d-lg-flex d-md-flex d-sm-block d-block" style={{ marginTop: 200 }}>
         <Col xl={{ span: 5 }} lg={{ span: 5 }} className={styles.pictureCol}>
           <Image className="w-100" src="/images/HomePage/Binance.gif"></Image>
         </Col>

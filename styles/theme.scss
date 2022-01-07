@@ -97,6 +97,7 @@ $input-bg-color: #293c62;
 
 //FOOTER START
 .footer {
+
   width: 100%;
   height: auto;
   background: #be93c5; /* fallback for old browsers */
@@ -247,6 +248,18 @@ $input-bg-color: #293c62;
     margin-top: 40px;
   }
 }
+.bm-menu-wrap {
+  right: 0px;
+  left: 0;
+  z-index: 1100;
+  text-align: center;
+  top: 0;
+  width: 340px;
+  height: 100vh;
+  transition: all 0.5s ease 0s;
+  background: white;
+  position: absolute;
+}
 .sidebar-social-icons:focus {
   border: unset !important;
   border-bottom: 1px solid $btn-default-font-color;
@@ -286,23 +299,26 @@ $input-bg-color: #293c62;
 }
 
 .bm-burger-button {
-  position: relative;
+  button{
+    color: black;
+  }
+  position: absolute;
   width: 29px;
   height: 22px;
-  /* left: 48px; */
-  right: 30px;
+  // /* left: 48px; */
+  right: -0 !important;
   margin-right: 10px;
   display: none;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #ef4923;
+  background: #fff;
 }
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: #a90000;
+  background: #000;
 }
 
 /* Position and sizing of clickable cross button */
@@ -339,7 +355,6 @@ $input-bg-color: #293c62;
   // border-width: 0.01em;
   // border-color: hsla(0, 0%, 100%, 0.2);
 }
-
 
 .sticky-menu-list {
   list-style: none;
@@ -387,14 +402,14 @@ $input-bg-color: #293c62;
   max-width: 100% !important;
   animation: logopulse 8s infinite;
 }
-@keyframes logopulse{
-  0%{
+@keyframes logopulse {
+  0% {
     transform: rotate(-8deg);
   }
-  50%{
+  50% {
     transform: rotate(10deg);
   }
-  100%{
+  100% {
     transform: rotate(-8deg);
   }
 }
@@ -522,12 +537,11 @@ $input-bg-color: #293c62;
     opacity: 70%;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif; /*  */
-      &:hover{
-        width: 130px;
-        color: white;
-      }
+    &:hover {
+      width: 130px;
+      color: white;
+    }
   }
-
 }
 //SLIDER END
 
@@ -542,14 +556,26 @@ $input-bg-color: #293c62;
   .bm-burger-button {
     display: block !important;
   }
+  .footer{
+    text-align: center;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767.98px) {
+  .bm-burger-button {
+    display: block !important;
+  }
+  .footer{
+    text-align: center;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991.98px) {
+  .bm-burger-button {
+    display: block !important;
+  }
 }
 
 // Large devices (desktops, 992px and up)

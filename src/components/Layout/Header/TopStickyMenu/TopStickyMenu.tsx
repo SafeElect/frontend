@@ -40,7 +40,7 @@ const TopStickyMenu = ({ isSticky }) => {
       }
     >
       <div className="container top-sticky-bar">
-        <Col xl={{ span: 2 }} lg={{ span: 2 }}>
+        <Col xl={{ span: 2 }} lg={{ span: 2 }} md={{span:2}} sm={{span:2}}>
           <Navbar.Brand>
             {console.log(isSticky + "sticky cehck")}
             <Link href="/">
@@ -74,7 +74,7 @@ const TopStickyMenu = ({ isSticky }) => {
         {/* <Navbar.Toggle aria-controls="responsive-navbar-nav">
         <FontAwesomeIcon icon={faBars} />
       </Navbar.Toggle> */}
-        <Col xl={{span:8}}>
+        <Col xl={{span:8}} lg={{span:8}} md={{span:8}}>
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav style={{ width: "100%" }} className="mr-auto">
               <ul
