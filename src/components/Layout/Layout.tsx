@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 
-const Layout = ({ children }) => {
+const Layout = ( {children} : {children:any} ) => {
   return (
     <Fragment>
       <Head>

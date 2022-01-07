@@ -7,7 +7,7 @@ import React, { Fragment } from "react";
 import Widget from "../Common/Widget";
 
 
-const DetailPage = (props) => {
+const DetailPage = (props:any) => {
   const { src, pageTitle, children, breadCrumbClass } = props;
   const title = pageTitle ? pageTitle : "Detay Sayfası";
   const addBreadCrumbClass = breadCrumbClass ? breadCrumbClass : "";

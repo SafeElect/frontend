@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Widget = props => {
+const Widget = (props:any) => {
     const {
         light,
         dark,

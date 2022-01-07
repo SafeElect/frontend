@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faEye, faUser } from "@fortawesome/free-solid-svg-icons";
 import Sidebar from "./Sidebar";
 
-const TopStickyMenu = ({ isSticky }) => {
+const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
   // const node = ReactDOM.findDOMNode(this);
   useEffect(() => {
     const topBar = Array.from(
