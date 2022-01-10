@@ -128,7 +128,7 @@ function vote() {
 
               <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
-                <Link href="/logout">
+                <Link href="/login">
                   <Button onClick={handleVote}>Vote</Button>
                 </Link>
               </DialogActions>

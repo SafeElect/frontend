@@ -81,7 +81,7 @@ const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
                 className="sticky-menu-list"
                 style={isSticky ? { background: "" } : { background: "" }}
               >
-                <Link href="/kurumsal">
+                <Link href="/">
                   <li
                     style={isSticky ? { color: "#fff" } : { color: "#fff" }}
                   >
@@ -89,7 +89,7 @@ const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
                     <span></span>
                   </li>
                 </Link>
-                <Link href="/hizmetlerimiz">
+                <Link href="/">
                   <li
                     style={isSticky ? { color: "#fff" } : { color: "#fff" }}
                   >
@@ -97,7 +97,7 @@ const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
                     <span></span>
                   </li>
                 </Link>
-                <Link href="/referanslarimiz">
+                <Link href="/">
                   <li
                     style={isSticky ? { color: "#fff" } : { color: "#fff" }}
                   >
@@ -113,7 +113,7 @@ const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
                     <span></span>
                   </li>
                 </Link>
-                <Link href="/iletisim">
+                <Link href="/">
                   <li
                     style={isSticky ? { color: "#fff" } : { color: "#fff" }}
                   >
