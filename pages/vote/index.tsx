@@ -14,6 +14,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import "reactjs-popup/dist/index.css";
 import React from "react";
 import styled from "@emotion/styled";
+import Link from "next/link";
 
 const VotingPanel = styled.div`
   display: flex;
@@ -31,7 +32,17 @@ const CandidateCard = styled.div`
   height: 250px;
   max-width: 350px;
 `;
-
+const CandidateImage = styled.div`
+  flex: 1 0 50%;
+  img {
+    max-width: 250px;
+  }
+`;
+const DialogBox = styled.div`
+  .MuiDialogContent-root {
+    display: flex;
+  }
+`;
 const candidates = {
   cd1: "Bill Gates",
   cd2: "Tim Cook",
@@ -99,15 +110,27 @@ function vote() {
               onClose={handleClose}
               aria-describedby="alert-dialog-slide-description"
             >
-              <DialogContent>
-                <DialogContentText id="alert-dialog-slide-description">
-                  Are you sure that you want to vote for {candidates[selectedCandidate]}? Once you have voted, the
-                  action will be irreversible.
-                </DialogContentText>
-              </DialogContent>
+              <DialogBox>
+                <DialogContent>
+                  <CandidateImage>
+                    <img
+                      src={"/images/vote/" + selectedCandidate + ".jpeg"}
+                      alt=""
+                    />
+                  </CandidateImage>
+                  <DialogContentText id="alert-dialog-slide-description">
+                    Are you sure that you want to vote for{" "}
+                    {candidates[selectedCandidate]}? Once you have voted, the
+                    action will be irreversible.
+                  </DialogContentText>
+                </DialogContent>
+              </DialogBox>
+
               <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleVote}>Vote</Button>
+                <Link href="/logout">
+                  <Button onClick={handleVote}>Vote</Button>
+                </Link>
               </DialogActions>
             </Dialog>
           </div>
