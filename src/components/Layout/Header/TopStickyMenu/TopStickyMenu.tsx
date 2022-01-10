@@ -105,7 +105,7 @@ const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
                     <span></span>
                   </li>
                 </Link>
-                <Link href="/insanKaynaklari">
+                <Link href="/vote">
                   <li
                     style={isSticky ? { color: "#fff" } : { color: "#fff" }}
                   >

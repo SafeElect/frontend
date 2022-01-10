@@ -33,7 +33,7 @@ const Sidebar = (props:any) => {
           How To Vote
         </a>
       </Link>
-      <Link href="/iletisim">
+      <Link href="/vote">
         <a className="menu-item" rel="noreferrer">
           SafeElect
         </a>
