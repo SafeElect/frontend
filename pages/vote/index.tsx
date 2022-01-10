@@ -11,7 +11,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import "reactjs-popup/dist/index.css";
+// import "reactjs-popup/dist/index.css";
 import React from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
@@ -128,7 +128,7 @@ function vote() {
 
               <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
-                <Link href="/logout">
+                <Link href="/login">
                   <Button onClick={handleVote}>Vote</Button>
                 </Link>
               </DialogActions>

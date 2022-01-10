@@ -45,14 +45,14 @@ const SocialMediaIcons = (props:any) => {
         />
       </a>
 
-      <a href="https://www.linkedin.com/in/syed-muhammad-ali-zaidi-0249b7155/" target="_blank" rel="noreferrer">
+      {/* <a href="https://www.linkedin.com/in/syed-muhammad-ali-zaidi-0249b7155/" target="_blank" rel="noreferrer">
         <FontAwesomeIcon
           className="social-icon"
           icon={socialIcons.faLinkedin}
           size={size ? size : "lg"}
           {...others}
         />
-      </a>
+      </a> */}
     </Fragment>
   );
 };
