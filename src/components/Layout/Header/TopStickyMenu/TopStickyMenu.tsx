@@ -117,7 +117,9 @@ const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
                   <li
                     style={isSticky ? { color: "#fff" } : { color: "#fff" }}
                   >
-                    <FontAwesomeIcon icon={faUser} style={{height:"30px"}}/>
+                    <Link href="/login">
+                      <FontAwesomeIcon icon={faUser} style={{height:"30px"}}/>
+                    </Link>
                     <span></span>
                   </li>
                 </Link>
