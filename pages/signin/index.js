@@ -11,6 +11,7 @@ import DetailPage from "../../src/components/DetailPage/DetailPage";
 
 initFirebase();
 const firebaseAuthConfig = ({ signInSuccessUrl }) => ({
+  
   signInFlow: "popup",
   signInOptions: [
     {
@@ -22,7 +23,7 @@ const firebaseAuthConfig = ({ signInSuccessUrl }) => ({
   signInSuccessUrl,
   credentialHelper: "none",
   callbacks: {
-    signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {
+    signInSuccessWithAuthResult: async ({ user } , {redirectUrl})  => {
       const userData = await mapUserData(user);
       setUserCookie(userData);
     },
@@ -39,7 +40,7 @@ const FirebaseAuth = () => {
 
           <div className={styles.componentWrapper}>
             <StyledFirebaseAuth
-              uiConfig={firebaseAuthConfig({ signInSuccessUrl })}
+              uiConfig={firebaseAuthConfig({ signInSuccessUrl }) }
               firebaseAuth={firebase.auth()}
               signInSuccessUrl={signInSuccessUrl}
             />
