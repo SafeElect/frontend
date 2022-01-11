@@ -18,17 +18,17 @@ import {
 const Sidebar = (props:any) => {
   return (
     <Menu>
-      <Link href="/kurumsal">
+      <Link href="/">
         <a className="menu-item" rel="noreferrer">
           Home
         </a>
       </Link>
-      <Link href="/hizmetlerimiz">
+      <Link href="/">
         <a className="menu-item" rel="noreferrer">
           Candidates
         </a>
       </Link>
-      <Link href="/referanslarimiz">
+      <Link href="/">
         <a className="menu-item" rel="noreferrer">
           How To Vote
         </a>
@@ -39,7 +39,7 @@ const Sidebar = (props:any) => {
         </a>
       </Link>
 
-      <Link href="/insanKaynaklari">
+      <Link href="/signin">
         <a className="menu-item" target="_blank" rel="noreferrer">
           Login
         </a>

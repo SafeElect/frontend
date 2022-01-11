@@ -7,8 +7,8 @@ const Layout = ( {children} : {children:any} ) => {
   return (
     <Fragment>
       <Head>
-        <title>Pointo | Dijital Çözüm Ortağı</title>
-        <link rel="icon" href="https://pointo.com.tr/assets/img/favicon.ico" />
+        <title>Safe Elect</title>
+        <link rel="icon" href="/" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 

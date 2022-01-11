@@ -22,7 +22,7 @@ const DetailPage = (props:any) => {
       ) : (
         <Head>
           {" "}
-          <title>Pointo | Dijital Çözüm Ortağı</title>{" "}
+          <title>Detay</title>{" "}
         </Head>
       )}
 

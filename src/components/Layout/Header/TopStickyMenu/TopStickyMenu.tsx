@@ -89,11 +89,11 @@ const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
                     <span></span>
                   </li>
                 </Link>
-                <Link href="/">
+                <Link href="/aboutus">
                   <li
                     style={isSticky ? { color: "#fff" } : { color: "#fff" }}
                   >
-                    Candidates
+                    About Us
                     <span></span>
                   </li>
                 </Link>
@@ -105,7 +105,7 @@ const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
                     <span></span>
                   </li>
                 </Link>
-                <Link href="/vote">
+                <Link href="/signin">
                   <li
                     style={isSticky ? { color: "#fff" } : { color: "#fff" }}
                   >
@@ -117,7 +117,7 @@ const TopStickyMenu = ( {isSticky} :{isSticky:any} ) => {
                   <li
                     style={isSticky ? { color: "#fff" } : { color: "#fff" }}
                   >
-                    <Link href="/login">
+                    <Link href="/signin">
                       <FontAwesomeIcon icon={faUser} style={{height:"30px"}}/>
                     </Link>
                     <span></span>

@@ -1,0 +1,22 @@
+.signIndiv{
+    background: linear-gradient(to right, rgb(123, 198, 204), rgb(190, 147, 197));
+    h5{
+        text-align: center;
+        font-weight: bold;
+        font-size: 2rem;
+        padding: 10px;
+        // margin-top: 15px;
+        color: #000;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Courier, monospace;
+        span{
+            color: #000;
+        }
+    }
+    .componentWrapper{
+        padding-bottom: 20px;
+    }
+
+}
+.firebaseComponent{
+    display: none;
+}
