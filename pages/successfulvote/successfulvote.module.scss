@@ -1,0 +1,18 @@
+.successfulvoteContainer {
+  background: #be93c5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #7bc6cc,
+    #be93c5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #7bc6cc,
+    #be93c5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  text-align: center;
+  h1{
+      margin-bottom: 0px;
+  }
+}
