@@ -1,4 +1,8 @@
 .votingPage {
+    font-family: 'Poppins', sans-serif;
+
+
+
     background: #FF5F6D;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -11,8 +15,11 @@
     top:0px;
     left:0px;
     z-index:1000;
+    overflow: scroll;
   .votingPageRow {
     margin-bottom: 30px;
+    justify-content: center;
+    text-align: center;
   }
   .cardCol {
     // margin-top: 250px;
@@ -20,6 +27,8 @@
     font-weight: bold;
     overflow: hidden;
     text-align: center;
+    justify-content: center;
+    display: flex;
     .votingButton {
       width: 15rem;
       height: 60px;
@@ -29,6 +38,9 @@
       background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
       background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       border: unset;
+    }
+    .votingButton:hover{
+        background: #FF5F6D;
     }
     .mainImage {
         border-radius: 26px;
@@ -52,8 +64,26 @@
   }
   .tutorial {
     padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
   }
 
+}
+.tutorialButton{
+    width: 400px;
+    background: #ffb347;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: unset;
+    font-size: 25px;
+}
+.tutorialBody{
+    font-family: 'Poppins', sans-serif;
+    h1{
+        font-size: 25px;
+        font-family: 'Poppins', sans-serif;
+    }
 }
 .confirmVoteModal{
 
