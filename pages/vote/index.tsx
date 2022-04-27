@@ -28,7 +28,6 @@ function Vote() {
 
   const [error, setError] = useState();
 
-
   const [contractInfo, setContractInfo] = useState({
     address: "-",
     tokenName: "-",
@@ -68,33 +67,72 @@ function Vote() {
     const signer = await provider.getSigner();
     const erc20 = new ethers.Contract(data, erc20abi, signer);
     await erc20.vote(e.target.id).catch(function (error) {
-       alert(error.data.message);
-      setError(error.data.message);
+      if (typeof error.data !== "undefined") {
+        alert(error.data.message);
+        setError(error.data.message);
+      }
     });
     handleVoteClose();
   };
 
   return (
     <div className={Styles.votingPage}>
-      <Container style={{height:"100%"}}>
+      <Container style={{ height: "100%" }}>
         <Container className={Styles.tutorial}>
-          <Button variant="primary" onClick={handleTutorialShow}>
+          <Button
+            variant="primary"
+            onClick={handleTutorialShow}
+            className={Styles.tutorialButton}
+          >
             Tutorial
           </Button>
-          <h1>{contractInfo.tokenName}</h1>
+          <h1>{error}</h1>
           <Modal show={showTutorial} onHide={handleTutorialClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
+              <Modal.Title>Voting Tutorial</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-              Woohoo, you're reading this text in a modal!
+            <Modal.Body className={Styles.tutorialBody}>
+              <h1>Step 1:</h1>
+              <p>
+                Go over all of the candidates and their respective information.
+              </p>
+
+              <h1>Step 2:</h1>
+              <p>Press the Vote Button after you have made your selection.</p>
+              <img src="/images/vote/tutorial/vote.PNG" alt="" />
+
+              <h1>Step 3:</h1>
+              <p>
+                A window will pop up asking you to confirm your selection. If
+                you are certain about your vote, press the Vote button. Else,
+                press cancel.
+              </p>
+              <img src="/images/vote/tutorial/confirm.PNG" alt="" />
+
+              <h1>Step 4:</h1>
+              <p>
+                A Metamask window will open and will ask you to Confirm or
+                Reject.
+              </p>
+              <img
+                src="/images/vote/tutorial/metamask.PNG"
+                alt=""
+                style={{ width: "100%" }}
+              />
+              <img
+                src="/images/vote/tutorial/confirmButtons.PNG"
+                alt=""
+                style={{ width: "100%" }}
+              />
+
+              <h1>Step 5:</h1>
+              <p>
+                After pressing confirm, you can leave the pooling booth.
+              </p>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleTutorialClose}>
                 Close
-              </Button>
-              <Button variant="primary" onClick={handleTutorialClose}>
-                Save Changes
               </Button>
             </Modal.Footer>
           </Modal>
@@ -112,16 +150,16 @@ function Vote() {
                 <Card.Body className={Styles.cardBody}>
                   <Card.Title>Imran Khan</Card.Title>
                   <div className="d-flex">
-                    <Col xl={{ span: 9 }} className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
                       <Card.Text>
                         Division: NA-257
                         <br />
                         Party: Pakistan Tehreek-e-Insaaf
-                        <br/>
+                        <br />
                         City: Mianwali
                       </Card.Text>
                     </Col>
-                    <Col xl={{ span: 3 }}>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
                       <img
                         src="/images/vote/ptiFlag.png"
                         alt=""
@@ -139,13 +177,20 @@ function Vote() {
                   </Button>
 
                   {/*MODEL FOR VOTING*/}
-                  <Modal show={showVote} onHide={handleVoteClose} className={Styles.confirmVoteModal}>
+                  <Modal
+                    show={showVote}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
                     <Modal.Header closeButton>
                       <Modal.Title>Confirm Your Vote</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <img src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg" alt="" />
-                      <h1>Do you want to vote for Imran Khan?</h1> 
+                      <img
+                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
+                        alt=""
+                      />
+                      <h1>Do you want to vote for Imran Khan?</h1>
                     </Modal.Body>
                     <Modal.Footer className={Styles.votingConfirmModalFooter}>
                       <Button variant="secondary" onClick={handleVoteClose}>
@@ -177,7 +222,7 @@ function Vote() {
                         Division: NA-257
                         <br />
                         Party: Pakistan Tehreek-e-Insaaf
-                        <br/>
+                        <br />
                         City: Mianwali
                       </Card.Text>
                     </Col>
@@ -199,13 +244,20 @@ function Vote() {
                   </Button>
 
                   {/*MODEL FOR VOTING*/}
-                  <Modal show={showVote} onHide={handleVoteClose} className={Styles.confirmVoteModal}>
+                  <Modal
+                    show={showVote}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
                     <Modal.Header closeButton>
                       <Modal.Title>Confirm Your Vote</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <img src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg" alt="" />
-                      <h1>Do you want to vote for Imran Khan?</h1> 
+                      <img
+                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
+                        alt=""
+                      />
+                      <h1>Do you want to vote for Imran Khan?</h1>
                     </Modal.Body>
                     <Modal.Footer className={Styles.votingConfirmModalFooter}>
                       <Button variant="secondary" onClick={handleVoteClose}>
@@ -239,7 +291,7 @@ function Vote() {
                         Division: NA-257
                         <br />
                         Party: Pakistan Tehreek-e-Insaaf
-                        <br/>
+                        <br />
                         City: Mianwali
                       </Card.Text>
                     </Col>
@@ -261,13 +313,20 @@ function Vote() {
                   </Button>
 
                   {/*MODEL FOR VOTING*/}
-                  <Modal show={showVote} onHide={handleVoteClose} className={Styles.confirmVoteModal}>
+                  <Modal
+                    show={showVote}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
                     <Modal.Header closeButton>
                       <Modal.Title>Confirm Your Vote</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <img src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg" alt="" />
-                      <h1>Do you want to vote for Imran Khan?</h1> 
+                      <img
+                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
+                        alt=""
+                      />
+                      <h1>Do you want to vote for Imran Khan?</h1>
                     </Modal.Body>
                     <Modal.Footer className={Styles.votingConfirmModalFooter}>
                       <Button variant="secondary" onClick={handleVoteClose}>
@@ -299,7 +358,7 @@ function Vote() {
                         Division: NA-257
                         <br />
                         Party: Pakistan Tehreek-e-Insaaf
-                        <br/>
+                        <br />
                         City: Mianwali
                       </Card.Text>
                     </Col>
@@ -321,13 +380,20 @@ function Vote() {
                   </Button>
 
                   {/*MODEL FOR VOTING*/}
-                  <Modal show={showVote} onHide={handleVoteClose} className={Styles.confirmVoteModal}>
+                  <Modal
+                    show={showVote}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
                     <Modal.Header closeButton>
                       <Modal.Title>Confirm Your Vote</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <img src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg" alt="" />
-                      <h1>Do you want to vote for Imran Khan?</h1> 
+                      <img
+                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
+                        alt=""
+                      />
+                      <h1>Do you want to vote for Imran Khan?</h1>
                     </Modal.Body>
                     <Modal.Footer className={Styles.votingConfirmModalFooter}>
                       <Button variant="secondary" onClick={handleVoteClose}>
@@ -343,7 +409,6 @@ function Vote() {
               </Card>
             </Col>
           </Row>
-
         </form>
       </Container>
     </div>
