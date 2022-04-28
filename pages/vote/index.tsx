@@ -17,9 +17,13 @@ import ErrorMessage from "./ErrorMessage";
 
 function Vote() {
   const [showVote, setVoteShow] = useState(false);
+  const [currentIndex, setIndex] = useState();
 
   const handleVoteClose = () => setVoteShow(false);
-  const handleVoteShow = () => setVoteShow(true);
+  const handleVoteShow = (e) => {
+    setVoteShow(true);
+    setIndex(e.target.id);
+  }
 
   const [showTutorial, setTutorialShow] = useState(false);
 
@@ -28,9 +32,11 @@ function Vote() {
 
   const [error, setError] = useState();
 
+
+
   const [contractInfo, setContractInfo] = useState({
     address: "-",
-    tokenName: "-",
+    chairperson: "-",
   });
 
   useEffect(() => {
@@ -46,7 +52,7 @@ function Vote() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = "0xef28cf98a12b789180833067fac05d1065d4adb3";
+    const data = "0x5fc27a76AcE2Af24332495d01b77b9eFF4768114";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const erc20 = new ethers.Contract(data, erc20abi, provider);
@@ -55,18 +61,19 @@ function Vote() {
 
     setContractInfo({
       address: data,
-      tokenName: chairperson,
+      chairperson: chairperson,
     });
     // alert(e.target.id);
     alert(chairperson);
   };
   const vote = async (e) => {
-    const data = "0xef28cf98a12b789180833067fac05d1065d4adb3";
+    const data = "0x5fc27a76AcE2Af24332495d01b77b9eFF4768114";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = await provider.getSigner();
     const erc20 = new ethers.Contract(data, erc20abi, signer);
-    await erc20.vote(e.target.id).catch(function (error) {
+    await erc20.vote(currentIndex).catch(function (error) {
+      alert(currentIndex);
       if (typeof error.data !== "undefined") {
         alert(error.data.message);
         setError(error.data.message);
@@ -172,6 +179,7 @@ function Vote() {
                     variant="primary"
                     onClick={handleVoteShow}
                     className={Styles.votingButton}
+                    id="0"
                   >
                     Vote
                   </Button>
@@ -332,7 +340,7 @@ function Vote() {
                       <Button variant="secondary" onClick={handleVoteClose}>
                         CLOSE
                       </Button>
-                      <Button variant="primary" onClick={vote} id="0">
+                      <Button variant="primary" onClick={vote} id="2">
                         VOTE
                       </Button>
                     </Modal.Footer>
@@ -399,7 +407,7 @@ function Vote() {
                       <Button variant="secondary" onClick={handleVoteClose}>
                         CLOSE
                       </Button>
-                      <Button variant="primary" onClick={vote} id="1">
+                      <Button variant="primary" onClick={vote} id="3">
                         VOTE
                       </Button>
                     </Modal.Footer>
