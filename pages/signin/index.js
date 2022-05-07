@@ -36,7 +36,7 @@ const FirebaseAuth = () => {
     <Layout>
       <DetailPage pageTitle="Sign Up/Log In">
         <div className={styles.signIndiv}>
-          <h5>Please Login or <span><br></br>Register to continue!</span></h5>
+          <h5>Please Login<span><br></br>to continue!</span></h5>
 
           <div className={styles.componentWrapper}>
             <StyledFirebaseAuth

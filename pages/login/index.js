@@ -1,21 +1,43 @@
-import withAuth from '../../auth/withAuth';
-import { useUser } from '../../auth/useUser';
 
-const Private = () => {
-  const { user, logout } = useUser();
+var bcrypt = require('bcryptjs');
 
-  return (
-    <div >
-      <div></div>
-      {
-        user?.email &&
-        <div>
-          <div>Email: {user.email}</div>
-          <button onClick={() => logout()}>Logout</button>
-        </div> 
-      }
-    </div>
-  )
-}
+const Login = () => {
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        const id = e.target.id.value;
+        const pass = e.target.pass.value;
+        const response = await fetch('http://localhost:8080/voter/'+id);
+        const myJson = await response.json();
+        if(myJson.data != undefined)
+        {
+            bcrypt.compare(pass, myJson.data.pass, function(err, result) {
+                console.log(result);
+                if(result)
+                {
+                    //successful login
+                    //put the myJson data in a state
+                    //set login state to true
+                }
+            });
+        }
+       
+    }
+    return (
+        <>
+        <h1>Test</h1>
+        <form action="" method="get" onSubmit={submitHandler}>
+            ID:
+            <input type={"textbox"} name="id"></input>
+            <br />
+            Pass:
+            <input type={"password"} name="pass"></input>
+            <button type="submit">Login</button>
+        </form>
+        
 
-export default withAuth(Private);
+        
+        </>
+    )
+  }
+
+export default Login;
