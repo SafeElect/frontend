@@ -15,7 +15,7 @@ const Login = () => {
                 if(result)
                 {
                     //successful login
-                    //put the myJson data in a state
+                    //put the myJson.data in a state
                     //set login state to true
                 }
             });
