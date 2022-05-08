@@ -2,39 +2,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "station",
-				"type": "address"
-			}
-		],
-		"name": "activateStation",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newChairperson",
-				"type": "address"
-			}
-		],
-		"name": "changeChairPerson",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "endElection",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "bytes32[]",
 				"name": "proposalNames",
 				"type": "bytes32[]"
@@ -46,12 +13,12 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "proposal",
-				"type": "uint256"
+				"internalType": "address",
+				"name": "station",
+				"type": "address"
 			}
 		],
-		"name": "vote",
+		"name": "activateStation",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -70,6 +37,19 @@
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newChairperson",
+				"type": "address"
+			}
+		],
+		"name": "changeChairPerson",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "electionRunning",
 		"outputs": [
@@ -80,6 +60,13 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "endElection",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -159,6 +146,19 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "proposal",
+				"type": "uint256"
+			}
+		],
+		"name": "vote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{

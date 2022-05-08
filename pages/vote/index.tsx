@@ -23,7 +23,7 @@ function Vote() {
   const handleVoteShow = (e) => {
     setVoteShow(true);
     setIndex(e.target.id);
-  }
+  };
 
   const [showTutorial, setTutorialShow] = useState(false);
 
@@ -31,8 +31,6 @@ function Vote() {
   const handleTutorialShow = () => setTutorialShow(true);
 
   const [error, setError] = useState();
-
-
 
   const [contractInfo, setContractInfo] = useState({
     address: "-",
@@ -52,7 +50,7 @@ function Vote() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = "0x5fc27a76AcE2Af24332495d01b77b9eFF4768114";
+    const data = "0xa005965e98ffbee7ef0656d7c199a861c1dc4642";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const erc20 = new ethers.Contract(data, erc20abi, provider);
@@ -67,7 +65,7 @@ function Vote() {
     alert(chairperson);
   };
   const vote = async (e) => {
-    const data = "0x5fc27a76AcE2Af24332495d01b77b9eFF4768114";
+    const data = "0xa005965e98ffbee7ef0656d7c199a861c1dc4642";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = await provider.getSigner();
@@ -133,9 +131,7 @@ function Vote() {
               />
 
               <h1>Step 5:</h1>
-              <p>
-                After pressing confirm, you can leave the pooling booth.
-              </p>
+              <p>After pressing confirm, you can leave the pooling booth.</p>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleTutorialClose}>
@@ -225,7 +221,7 @@ function Vote() {
                 <Card.Body className={Styles.cardBody}>
                   <Card.Title>Imran Khan</Card.Title>
                   <div className="d-flex">
-                    <Col xl={{ span: 9 }} className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
                       <Card.Text>
                         Division: NA-257
                         <br />
@@ -234,7 +230,7 @@ function Vote() {
                         City: Mianwali
                       </Card.Text>
                     </Col>
-                    <Col xl={{ span: 3 }}>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
                       <img
                         src="/images/vote/ptiFlag.png"
                         alt=""
@@ -247,6 +243,7 @@ function Vote() {
                     variant="primary"
                     onClick={handleVoteShow}
                     className={Styles.votingButton}
+                    id="1"
                   >
                     Vote
                   </Button>
@@ -271,7 +268,7 @@ function Vote() {
                       <Button variant="secondary" onClick={handleVoteClose}>
                         CLOSE
                       </Button>
-                      <Button variant="primary" onClick={vote} id="1">
+                      <Button variant="primary" onClick={vote} id="0">
                         VOTE
                       </Button>
                     </Modal.Footer>
@@ -282,141 +279,7 @@ function Vote() {
             </Col>
           </Row>
 
-          <Row className={Styles.votingPageRow}>
-            <Col className={Styles.cardCol}>
-              <Card style={{ width: "28rem" }} className={Styles.card}>
-                <Card.Img
-                  variant="top"
-                  src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                  className={Styles.mainImage}
-                />
-
-                <Card.Body className={Styles.cardBody}>
-                  <Card.Title>Imran Khan</Card.Title>
-                  <div className="d-flex">
-                    <Col xl={{ span: 9 }} className="d-flex">
-                      <Card.Text>
-                        Division: NA-257
-                        <br />
-                        Party: Pakistan Tehreek-e-Insaaf
-                        <br />
-                        City: Mianwali
-                      </Card.Text>
-                    </Col>
-                    <Col xl={{ span: 3 }}>
-                      <img
-                        src="/images/vote/ptiFlag.png"
-                        alt=""
-                        className={Styles.partySymbol}
-                      />
-                    </Col>
-                  </div>
-
-                  <Button
-                    variant="primary"
-                    onClick={handleVoteShow}
-                    className={Styles.votingButton}
-                  >
-                    Vote
-                  </Button>
-
-                  {/*MODEL FOR VOTING*/}
-                  <Modal
-                    show={showVote}
-                    onHide={handleVoteClose}
-                    className={Styles.confirmVoteModal}
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title>Confirm Your Vote</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <img
-                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                        alt=""
-                      />
-                      <h1>Do you want to vote for Imran Khan?</h1>
-                    </Modal.Body>
-                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
-                      <Button variant="secondary" onClick={handleVoteClose}>
-                        CLOSE
-                      </Button>
-                      <Button variant="primary" onClick={vote} id="2">
-                        VOTE
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                  {/*MODEL FOR VOTING*/}
-                </Card.Body>
-              </Card>
-            </Col>
-
-            <Col className={Styles.cardCol}>
-              <Card style={{ width: "28rem" }} className={Styles.card}>
-                <Card.Img
-                  variant="top"
-                  src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                  className={Styles.mainImage}
-                />
-
-                <Card.Body className={Styles.cardBody}>
-                  <Card.Title>Imran Khan</Card.Title>
-                  <div className="d-flex">
-                    <Col xl={{ span: 9 }} className="d-flex">
-                      <Card.Text>
-                        Division: NA-257
-                        <br />
-                        Party: Pakistan Tehreek-e-Insaaf
-                        <br />
-                        City: Mianwali
-                      </Card.Text>
-                    </Col>
-                    <Col xl={{ span: 3 }}>
-                      <img
-                        src="/images/vote/ptiFlag.png"
-                        alt=""
-                        className={Styles.partySymbol}
-                      />
-                    </Col>
-                  </div>
-
-                  <Button
-                    variant="primary"
-                    onClick={handleVoteShow}
-                    className={Styles.votingButton}
-                  >
-                    Vote
-                  </Button>
-
-                  {/*MODEL FOR VOTING*/}
-                  <Modal
-                    show={showVote}
-                    onHide={handleVoteClose}
-                    className={Styles.confirmVoteModal}
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title>Confirm Your Vote</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <img
-                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                        alt=""
-                      />
-                      <h1>Do you want to vote for Imran Khan?</h1>
-                    </Modal.Body>
-                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
-                      <Button variant="secondary" onClick={handleVoteClose}>
-                        CLOSE
-                      </Button>
-                      <Button variant="primary" onClick={vote} id="3">
-                        VOTE
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                  {/*MODEL FOR VOTING*/}
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
+          <Row className={Styles.votingPageRow}></Row>
         </form>
       </Container>
     </div>
