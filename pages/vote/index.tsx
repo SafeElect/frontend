@@ -127,14 +127,16 @@ function Vote() {
 
         //backend stuff
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost/stats/addstat", true);
+        xhr.open("POST", "http://localhost:8080/addstat", true);
         xhr.setRequestHeader('Content-Type', 'application/json');
+        console.log(voterData);
+
         xhr.send(JSON.stringify({
-          gender: localStorage.items.gender,
-          age: 2022-localStorage.items.bday.slice(0,4),
-          bcity: localStorage.items.bcity,
-          area: localStorage.items.adress,
-          votedFor: "Team "+currentIndex,
+          gender: voterData.gender,
+          age: 2022-voterData.bday.slice(0,4),
+          bcity: voterData.bcity,
+          area: voterData.address,
+          votedFor: "Team "+(currentIndex+1),
         }));
 
         router.push({
