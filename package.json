@@ -35,6 +35,7 @@
     "react-ui-cards": "^3.0.0",
     "sass": "^1.46.0",
     "styled-components": "^5.3.3",
+    "universal-cookie": "^4.0.4",
     "web3": "^1.6.1"
   },
   "devDependencies": {

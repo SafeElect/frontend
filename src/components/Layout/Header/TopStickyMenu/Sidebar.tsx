@@ -39,7 +39,7 @@ const Sidebar = (props:any) => {
         </a>
       </Link>
 
-      <Link href="/signin">
+      <Link href="/login">
         <a className="menu-item" target="_blank" rel="noreferrer">
           Login
         </a>

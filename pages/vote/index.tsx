@@ -14,10 +14,13 @@ import Layout from "../../src/components/Layout/Layout";
 import Styles from "./vote.module.scss";
 import erc20abi from "../../assets/ERC20abi.json";
 import ErrorMessage from "./ErrorMessage";
+import { useRouter } from "next/router";
 
 function Vote() {
   const [showVote, setVoteShow] = useState(false);
   const [currentIndex, setIndex] = useState();
+
+  const [voterData, setVoterData] = useState({});
 
   const handleVoteClose = () => setVoteShow(false);
   const handleVoteShow = (e) => {
@@ -37,6 +40,42 @@ function Vote() {
     chairperson: "-",
   });
 
+  const router = useRouter();
+
+  const [items, setItems] = useState([]);
+
+
+
+  useEffect(() => {
+
+    if (
+      typeof localStorage.items !== "undefined" &&
+      typeof localStorage.getItem("items") !== null
+    ) {
+      const itemsTemp = JSON.parse(localStorage.getItem("items") + "");
+  
+      setVoterData(itemsTemp);
+      // console.log(voterData);
+    }
+    
+    if (
+      typeof localStorage.items !== "undefined" &&
+      typeof localStorage.getItem("success") !== null
+    ) {
+      // console.log(localStorage.items);
+      console.log(localStorage.getItem("success"));
+      if (localStorage.getItem("success") === "false") {
+              
+        router.push({
+          pathname: `/login`,
+        });
+      }
+    } else {
+      
+      router.push("/login");
+    }
+  }, []);
+
   useEffect(() => {
     if (contractInfo.address !== "-") {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -50,7 +89,7 @@ function Vote() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = "0xa005965e98ffbee7ef0656d7c199a861c1dc4642";
+    const data = "0xa005965E98fFbee7Ef0656D7C199a861c1dC4642";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const erc20 = new ethers.Contract(data, erc20abi, provider);
@@ -62,15 +101,15 @@ function Vote() {
       chairperson: chairperson,
     });
     // alert(e.target.id);
-    alert(chairperson);
+    // alert(chairperson);
   };
   const vote = async (e) => {
-    const data = "0xa005965e98ffbee7ef0656d7c199a861c1dc4642";
+    const data = "0xa005965E98fFbee7Ef0656D7C199a861c1dC4642";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = await provider.getSigner();
     const erc20 = new ethers.Contract(data, erc20abi, signer);
-    await erc20.vote(currentIndex).catch(function (error) {
+    await erc20.vote(currentIndex).catch(function (error: any) {
       alert(currentIndex);
       if (typeof error.data !== "undefined") {
         alert(error.data.message);
@@ -83,6 +122,12 @@ function Vote() {
   return (
     <div className={Styles.votingPage}>
       <Container style={{ height: "100%" }}>
+        {/* <h1>{router.query.success}</h1> */}
+        <div className={Styles.topInfo}>
+          <h1>Voter: { voterData.first + " " + voterData.last}</h1>
+          <h2>Gender: {voterData.gender}</h2>
+          <h1>City: {voterData.bcity}</h1>
+        </div>
         <Container className={Styles.tutorial}>
           <Button
             variant="primary"

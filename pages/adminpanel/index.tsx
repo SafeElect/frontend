@@ -77,7 +77,7 @@ const AdminPanel = () => {
   const ActivateStation = async (e) => {
     const form = nameForm.current;
 
-    const data = "0xa005965e98ffbee7ef0656d7c199a861c1dc4642";
+    const data = "0xa005965E98fFbee7Ef0656D7C199a861c1dC4642";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = await provider.getSigner();
@@ -95,7 +95,7 @@ const AdminPanel = () => {
   };
 
   const endElection = async () => {
-    const data = "0xa005965e98ffbee7ef0656d7c199a861c1dc4642";
+    const data = "0xa005965E98fFbee7Ef0656D7C199a861c1dC4642";
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
@@ -110,7 +110,7 @@ const AdminPanel = () => {
   };
 
   const announceWinner = async () => {
-    const data = "0xa005965e98ffbee7ef0656d7c199a861c1dc4642";
+    const data = "0xa005965E98fFbee7Ef0656D7C199a861c1dC4642";
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);

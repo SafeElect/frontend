@@ -1,21 +1,47 @@
 .votingPage {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 
+  background: #ff5f6d; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #ffc371,
+    #ff5f6d
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #ffc371,
+    #ff5f6d
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
-    background: #FF5F6D;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    opacity:0.8;
-    background-color:#ccc;
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0px;
-    left:0px;
-    z-index:1000;
-    overflow: scroll;
+  opacity: 0.8;
+  background-color: #ccc;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+  overflow: scroll;
+  .topInfo {
+    background: white;
+    margin-top: 10px;
+    border-radius: 15px;
+    border: 5px solid #ffb347;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    h1 {
+      font-family: "Poppins";
+      font-size: 20px;
+    }
+    h2 {
+      font-family: "Poppins";
+      font-size: 20px;
+      // margin-left: 40px;
+    }
+  }
   .votingPageRow {
     margin-bottom: 30px;
     justify-content: center;
@@ -34,21 +60,30 @@
       height: 60px;
       font-size: 30px;
       margin-top: 15px;
-      background: #ffb347;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: #ffb347; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #ffcc33,
+        #ffb347
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(
+        to right,
+        #ffcc33,
+        #ffb347
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
       border: unset;
     }
-    .votingButton:hover{
-        background: #FF5F6D;
+    .votingButton:hover {
+      background: #ff5f6d;
     }
     .mainImage {
-        border-radius: 26px;
+      border-radius: 26px;
     }
     .card {
       border: 6px solid #fff;
       border-radius: 32px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
       .cardBody {
         p {
           text-align: left;
@@ -57,8 +92,8 @@
           width: 100%;
         }
       }
-      &:hover{
-          border: 6px solid orange;
+      &:hover {
+        border: 6px solid orange;
       }
     }
   }
@@ -68,38 +103,44 @@
     justify-content: center;
     margin-bottom: 50px;
   }
-
 }
-.tutorialButton{
-    width: 400px;
-    background: #ffb347;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border: unset;
+.tutorialButton {
+  width: 400px;
+  background: #ffb347; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffcc33,
+    #ffb347
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffcc33,
+    #ffb347
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: unset;
+  font-size: 25px;
+}
+.tutorialBody {
+  font-family: "Poppins", sans-serif;
+  h1 {
     font-size: 25px;
+    font-family: "Poppins", sans-serif;
+  }
 }
-.tutorialBody{
-    font-family: 'Poppins', sans-serif;
-    h1{
-        font-size: 25px;
-        font-family: 'Poppins', sans-serif;
-    }
-}
-.confirmVoteModal{
+.confirmVoteModal {
+  img {
+    width: 100%;
+  }
+  h1 {
+    font-weight: 800;
+    font-size: 25px;
+  }
 
-    img{
-        width: 100%;
+  .votingConfirmModalFooter {
+    text-align: center;
+    display: block;
+    button {
+      width: 50%;
     }
-    h1{
-        font-weight: 800;
-        font-size: 25px;
-    }
-
-    .votingConfirmModalFooter{
-        text-align: center;
-        display: block;
-        button{
-            width: 50%;
-        }
-    }
+  }
 }
