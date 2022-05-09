@@ -31,6 +31,7 @@
     display: flex;
     justify-content: space-between;
     padding-left: 15px;
+    position: sticky;
     padding-right: 15px;
     h1 {
       font-family: "Poppins";
@@ -81,12 +82,16 @@
     }
     .card {
       border: 6px solid #fff;
+      cursor: pointer;
       border-radius: 32px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
       .cardBody {
         p {
           text-align: left;
+          font-size: 15px;
+          font-family: 'Poppins';
+          font-weight: 400;
         }
         .partySymbol {
           width: 100%;

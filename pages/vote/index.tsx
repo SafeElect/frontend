@@ -17,15 +17,22 @@ import ErrorMessage from "./ErrorMessage";
 import { useRouter } from "next/router";
 
 function Vote() {
-  const [showVote, setVoteShow] = useState(false);
-  const [currentIndex, setIndex] = useState();
+  const [showVote, setVoteShow] = useState();
+  // const [currentIndex, setIndex] = useState(0);
+  let currentIndex = "0";
 
   const [voterData, setVoterData] = useState({});
 
   const handleVoteClose = () => setVoteShow(false);
+
   const handleVoteShow = (e) => {
-    setVoteShow(true);
-    setIndex(e.target.id);
+    setVoteShow(e.target.id);
+    // setIndex(e.target.id);
+    currentIndex = e.target.id;
+    alert(currentIndex);
+  };
+  const tempFunc = (e) => {
+    alert(e.target.id + " in temp");
   };
 
   const [showTutorial, setTutorialShow] = useState(false);
@@ -44,20 +51,17 @@ function Vote() {
 
   const [items, setItems] = useState([]);
 
-
-
   useEffect(() => {
-
     if (
       typeof localStorage.items !== "undefined" &&
       typeof localStorage.getItem("items") !== null
     ) {
       const itemsTemp = JSON.parse(localStorage.getItem("items") + "");
-  
+
       setVoterData(itemsTemp);
       // console.log(voterData);
     }
-    
+
     if (
       typeof localStorage.items !== "undefined" &&
       typeof localStorage.getItem("success") !== null
@@ -65,13 +69,11 @@ function Vote() {
       // console.log(localStorage.items);
       console.log(localStorage.getItem("success"));
       if (localStorage.getItem("success") === "false") {
-              
         router.push({
           pathname: `/login`,
         });
       }
     } else {
-      
       router.push("/login");
     }
   }, []);
@@ -115,6 +117,8 @@ function Vote() {
         alert(error.data.message);
         setError(error.data.message);
       }
+    }).then(function (){
+      alert("in here");
     });
     handleVoteClose();
   };
@@ -124,7 +128,7 @@ function Vote() {
       <Container style={{ height: "100%" }}>
         {/* <h1>{router.query.success}</h1> */}
         <div className={Styles.topInfo}>
-          <h1>Voter: { voterData.first + " " + voterData.last}</h1>
+          <h1>Voter: {voterData.first + " " + voterData.last}</h1>
           <h2>Gender: {voterData.gender}</h2>
           <h1>City: {voterData.bcity}</h1>
         </div>
@@ -191,25 +195,26 @@ function Vote() {
               <Card style={{ width: "28rem" }} className={Styles.card}>
                 <Card.Img
                   variant="top"
-                  src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
+                  src="https://i.ibb.co/f9FfCSh/Team1.jpg"
                   className={Styles.mainImage}
                 />
 
                 <Card.Body className={Styles.cardBody}>
-                  <Card.Title>Imran Khan</Card.Title>
+                  <Card.Title>Mithril</Card.Title>
                   <div className="d-flex">
                     <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
                       <Card.Text>
-                        Division: NA-257
-                        <br />
-                        Party: Pakistan Tehreek-e-Insaaf
-                        <br />
-                        City: Mianwali
+                        Discription: <br></br> Cloud-Based Web Application
+                        Security Network
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
                       </Card.Text>
                     </Col>
                     <Col xl={{ span: 3 }} lg={{ span: 3 }}>
                       <img
-                        src="/images/vote/ptiFlag.png"
+                        src="/images/vote/ctisLogo.png"
                         alt=""
                         className={Styles.partySymbol}
                       />
@@ -227,7 +232,7 @@ function Vote() {
 
                   {/*MODEL FOR VOTING*/}
                   <Modal
-                    show={showVote}
+                    show={showVote === "0"}
                     onHide={handleVoteClose}
                     className={Styles.confirmVoteModal}
                   >
@@ -235,11 +240,8 @@ function Vote() {
                       <Modal.Title>Confirm Your Vote</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <img
-                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                        alt=""
-                      />
-                      <h1>Do you want to vote for Imran Khan?</h1>
+                      <img src="https://i.ibb.co/f9FfCSh/Team1.jpg" alt="" />
+                      <h1>Do you want to vote for Mithril?</h1>
                     </Modal.Body>
                     <Modal.Footer className={Styles.votingConfirmModalFooter}>
                       <Button variant="secondary" onClick={handleVoteClose}>
@@ -259,25 +261,26 @@ function Vote() {
               <Card style={{ width: "28rem" }} className={Styles.card}>
                 <Card.Img
                   variant="top"
-                  src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
+                  src="https://i.ibb.co/zVfPYHB/Team2.jpg"
                   className={Styles.mainImage}
                 />
 
                 <Card.Body className={Styles.cardBody}>
-                  <Card.Title>Imran Khan</Card.Title>
+                  <Card.Title>SafeElect</Card.Title>
                   <div className="d-flex">
                     <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
                       <Card.Text>
-                        Division: NA-257
-                        <br />
-                        Party: Pakistan Tehreek-e-Insaaf
-                        <br />
-                        City: Mianwali
+                        Discription: <br></br> A Reliable And Sustainable
+                        Blockchain-Based Electronic Voting System
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
                       </Card.Text>
                     </Col>
                     <Col xl={{ span: 3 }} lg={{ span: 3 }}>
                       <img
-                        src="/images/vote/ptiFlag.png"
+                        src="/images/vote/ctisLogo.png"
                         alt=""
                         className={Styles.partySymbol}
                       />
@@ -295,7 +298,7 @@ function Vote() {
 
                   {/*MODEL FOR VOTING*/}
                   <Modal
-                    show={showVote}
+                    show={showVote === "1"}
                     onHide={handleVoteClose}
                     className={Styles.confirmVoteModal}
                   >
@@ -303,17 +306,80 @@ function Vote() {
                       <Modal.Title>Confirm Your Vote</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <img
-                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                        alt=""
-                      />
-                      <h1>Do you want to vote for Imran Khan?</h1>
+                      <img src="https://i.ibb.co/zVfPYHB/Team2.jpg" alt="" />
+                      <h1>Do you want to vote for SafeElect?</h1>
                     </Modal.Body>
                     <Modal.Footer className={Styles.votingConfirmModalFooter}>
                       <Button variant="secondary" onClick={handleVoteClose}>
                         CLOSE
                       </Button>
-                      <Button variant="primary" onClick={vote} id="0">
+                      <Button variant="primary" onClick={vote} id="1">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/zr9fPMg/Team3.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>EventEco</Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> Event Management System For
+                        Global Sustainability Issues (Eventeco)
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="2"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "2"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/zr9fPMg/Team3.jpg" alt="" />
+                      <h1>Do you want to vote for EventEco?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="2">
                         VOTE
                       </Button>
                     </Modal.Footer>
@@ -324,7 +390,671 @@ function Vote() {
             </Col>
           </Row>
 
-          <Row className={Styles.votingPageRow}></Row>
+          <Row className={Styles.votingPageRow}>
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/2WxkW7s/Team4.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>AVIR </Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> VR-BASED FIGHTING GAME
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="3"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "3"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/2WxkW7s/Team4.jpg" alt="" />
+                      <h1>Do you want to vote for AVIR ?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="3">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/xjNpXVB/Team5.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>Intruvision</Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> A Low-Level Network Traffic
+                        Analysis Tool
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="4"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "4"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/xjNpXVB/Team5.jpg" alt="" />
+                      <h1>Do you want to vote for Intruvision?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="4">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/Gx2vtfD/Team6.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>No Available Quota</Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> Blockchain Based Digital Content
+                        Ownership And Marketplace
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="5"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "5"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/Gx2vtfD/Team6.jpg" alt="" />
+                      <h1>Do you want to vote for No Available Quota?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="5">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+
+          <Row className={Styles.votingPageRow}>
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/mRg1Qcy/Team7.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>TraackTrails </Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> A Social Network Application For
+                        Outdoor Activities (Tracktrails)
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="6"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "6"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/mRg1Qcy/Team7.jpg" alt="" />
+                      <h1>Do you want to vote for TraackTrails?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="6">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/xjNpXVB/Team5.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>SEMT</Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> Cey Defence Software Engineering
+                        Management Tool
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="7"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "7"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/xjNpXVB/Team5.jpg" alt="" />
+                      <h1>Do you want to vote for SEMT?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="7">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/ysJg11s/Team9.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>SecurePay</Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> Secure Use Of Cloud Storage With
+                        Usb Flash Drive
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="8"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "8"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/ysJg11s/Team9.jpg" alt="" />
+                      <h1>Do you want to vote for No Available SecurePay?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="8">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+
+          <Row className={Styles.votingPageRow}>
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/bPzr7RT/Team10.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>RecycleIT</Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> Recycling Search System
+                        (Recycleit)
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="9"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "9"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/bPzr7RT/Team10.jpg" alt="" />
+                      <h1>Do you want to vote for RecycleIT?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="9">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/KKtm65W/Team11.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>Left-Over</Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> Leftover Information System
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="10"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "10"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/KKtm65W/Team11.jpg" alt="" />
+                      <h1>Do you want to vote for Left-Over?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="10">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/wR9PXb4/Team12.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>PlantC</Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> Plant Recognition System
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="11"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "11"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/wR9PXb4/Team12.jpg" alt="" />
+                      <h1>Do you want to vote for No Available PlantC?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="11">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+
+          <Row className={Styles.votingPageRow}>
+            <Col className={Styles.cardCol}>
+              <Card style={{ width: "28rem" }} className={Styles.card}>
+                <Card.Img
+                  variant="top"
+                  src="https://i.ibb.co/zxBzy2j/Team13.jpg"
+                  className={Styles.mainImage}
+                />
+
+                <Card.Body className={Styles.cardBody}>
+                  <Card.Title>IoTeam</Card.Title>
+                  <div className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
+                      <Card.Text>
+                        Discription: <br></br> Smart Iot Twin
+                        {/* <br />
+                        Party: Pakistan Tehreek-e-Insaaf */}
+                        {/* <br /> */}
+                        {/* City: Mianwali */}
+                      </Card.Text>
+                    </Col>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
+                      <img
+                        src="/images/vote/ctisLogo.png"
+                        alt=""
+                        className={Styles.partySymbol}
+                      />
+                    </Col>
+                  </div>
+
+                  <Button
+                    variant="primary"
+                    onClick={handleVoteShow}
+                    className={Styles.votingButton}
+                    id="9"
+                  >
+                    Vote
+                  </Button>
+
+                  {/*MODEL FOR VOTING*/}
+                  <Modal
+                    show={showVote === "9"}
+                    onHide={handleVoteClose}
+                    className={Styles.confirmVoteModal}
+                  >
+                    <Modal.Header closeButton>
+                      <Modal.Title>Confirm Your Vote</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <img src="https://i.ibb.co/zxBzy2j/Team13.jpg" alt="" />
+                      <h1>Do you want to vote for IoTeam?</h1>
+                    </Modal.Body>
+                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
+                      <Button variant="secondary" onClick={handleVoteClose}>
+                        CLOSE
+                      </Button>
+                      <Button variant="primary" onClick={vote} id="9">
+                        VOTE
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  {/*MODEL FOR VOTING*/}
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col className={Styles.cardCol}></Col>
+            <Col className={Styles.cardCol}></Col>
+          </Row>
         </form>
       </Container>
     </div>
