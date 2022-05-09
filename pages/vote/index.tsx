@@ -67,7 +67,7 @@ function Vote() {
       typeof localStorage.getItem("success") !== null
     ) {
       // console.log(localStorage.items);
-      console.log(localStorage.getItem("success"));
+      // console.log(localStorage.getItem("success"));
       if (localStorage.getItem("success") === "false") {
         router.push({
           pathname: `/login`,
@@ -111,15 +111,23 @@ function Vote() {
     await provider.send("eth_requestAccounts", []);
     const signer = await provider.getSigner();
     const erc20 = new ethers.Contract(data, erc20abi, signer);
-    await erc20.vote(currentIndex).catch(function (error: any) {
-      alert(currentIndex);
-      if (typeof error.data !== "undefined") {
-        alert(error.data.message);
-        setError(error.data.message);
-      }
-    }).then(function (){
-      alert("in here");
-    });
+    await erc20
+      .vote(currentIndex)
+      .catch(function (error: any) {
+        // alert(currentIndex);
+        if (typeof error.data !== "undefined") {
+          // alert(error.data.message);
+          setError(error.data.message);
+          alert(error.data.message+". Please call the polling agent to assist you");
+          return Promise.reject("ERROR IN BLOCKCHAIN CALL");
+        }
+      })
+      .then(function () {
+        console.log(error);
+        router.push({
+          pathname: `/logout`,
+        });
+      });
     handleVoteClose();
   };
 
@@ -132,6 +140,7 @@ function Vote() {
           <h2>Gender: {voterData.gender}</h2>
           <h1>City: {voterData.bcity}</h1>
         </div>
+        <h5>{error}</h5>
         <Container className={Styles.tutorial}>
           <Button
             variant="primary"
@@ -140,7 +149,7 @@ function Vote() {
           >
             Tutorial
           </Button>
-          <h1>{error}</h1>
+
           <Modal show={showTutorial} onHide={handleTutorialClose}>
             <Modal.Header closeButton>
               <Modal.Title>Voting Tutorial</Modal.Title>

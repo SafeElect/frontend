@@ -22,10 +22,10 @@ const Login = () => {
     const myJson = await response.json();
     if (myJson.data != undefined) {
       bcrypt.compare(pass, myJson.data.pass, function (err:any, result:any) {
-        console.log(result);
-        console.log(myJson.data);
-        console.log("pass: " + pass);
-        console.log("myJson.data.pass: " + myJson.data.pass);
+        // console.log(result);
+        // console.log(myJson.data);
+        // console.log("pass: " + pass);
+        // console.log("myJson.data.pass: " + myJson.data.pass);
         if (result) {
           //successful login
           //put the myJson.data in a state
