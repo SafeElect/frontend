@@ -133,6 +133,7 @@ function Vote() {
           gender: localStorage.items.gender,
           age: localStorage.items.age,
           bcity: localStorage.items.bcity,
+          area: localStorage.items.adress,
           votedFor: "Team "+currentIndex,
         }));
 
