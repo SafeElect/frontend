@@ -140,6 +140,7 @@ function Vote() {
         }));
 
         fetch('http://localhost:8080/candidate/'+currentIndex+1, {method: 'PUT',})
+        fetch('http://localhost:8080/voter/v/'+voterData.id, {method: 'PUT',})
 
         router.push({
           pathname: `/logout`,
@@ -147,6 +148,7 @@ function Vote() {
       });
     handleVoteClose();
   };
+
 
   return (
     <div className={Styles.votingPage}>
