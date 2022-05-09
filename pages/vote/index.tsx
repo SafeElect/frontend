@@ -139,6 +139,8 @@ function Vote() {
           votedFor: "Team "+(currentIndex+1),
         }));
 
+        fetch('http://localhost:8080/candidate/'+currentIndex+1, {method: 'PUT',})
+
         router.push({
           pathname: `/logout`,
         });
