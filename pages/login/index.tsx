@@ -21,7 +21,7 @@ const Login = () => {
     const response = await fetch("http://localhost:8080/voter/" + id);
     const myJson = await response.json();
     if (myJson.data != undefined) {
-      bcrypt.compare(pass, myJson.data.pass, function (err:any, result:any) {
+      bcrypt.compare(pass, myJson.data.pass, function (err: any, result: any) {
         // console.log(result);
         // console.log(myJson.data);
         // console.log("pass: " + pass);
@@ -35,14 +35,18 @@ const Login = () => {
           //   temp: "WORKING",
           // });
           items = myJson.data;
-          localStorage.setItem("items", JSON.stringify(items));
-          localStorage.setItem("success", JSON.stringify(true));
+          if (items.voted === 1) {
+            alert("Bitch get the fuck out");
+          } else {
+            localStorage.setItem("items", JSON.stringify(items));
+            localStorage.setItem("success", JSON.stringify(true));
 
-          router.push({
-            pathname: `/vote`,
-            // query: { success: true },
-          });
-        }else{
+            router.push({
+              pathname: `/vote`,
+              // query: { success: true },
+            });
+          }
+        } else {
           localStorage.setItem("success", JSON.stringify(false));
         }
       });
