@@ -118,12 +118,24 @@ function Vote() {
         if (typeof error.data !== "undefined") {
           // alert(error.data.message);
           setError(error.data.message);
-          alert(error.data.message+". Please call the polling agent to assist you");
+          alert(error.data.message + ". Please call the polling agent to assist you");
           return Promise.reject("ERROR IN BLOCKCHAIN CALL");
         }
       })
       .then(function () {
         console.log(error);
+
+        //backend stuff
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost/stats/addstat", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+          gender: localStorage.items.gender,
+          age: localStorage.items.age,
+          bcity: localStorage.items.bcity,
+          votedFor: "Team "+currentIndex,
+        }));
+
         router.push({
           pathname: `/logout`,
         });
