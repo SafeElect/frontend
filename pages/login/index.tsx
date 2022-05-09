@@ -36,7 +36,7 @@ const Login = () => {
           // });
           items = myJson.data;
           if (items.voted === 1) {
-            alert("Bitch get the fuck out");
+            alert("You have already voted. Please contact the polling agent");
           } else {
             localStorage.setItem("items", JSON.stringify(items));
             localStorage.setItem("success", JSON.stringify(true));
