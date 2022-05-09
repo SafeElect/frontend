@@ -131,7 +131,7 @@ function Vote() {
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({
           gender: localStorage.items.gender,
-          age: localStorage.items.age,
+          age: 2022-localStorage.items.bday.slice(0,4),
           bcity: localStorage.items.bcity,
           area: localStorage.items.adress,
           votedFor: "Team "+currentIndex,
