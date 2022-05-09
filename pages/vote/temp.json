@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "data": {
+    "id": 9,
+    "nid": "eucar",
+    "first": "DR. ERKAN",
+    "last": "UÇAR",
+    "mother_first": "Mom",
+    "father_first": "Dad",
+    "address": "ANKARA",
+    "gender": "Male",
+    "bday": "1989-12-30T22:00:00.000Z",
+    "bcity": "ANKARA",
+    "pass": "$2b$10$bvm6i3.xr3Y.6.yq0PDZNu3t8JWyYYl9zDDQfh8wqHj.eQqsg/ec6"
+  }
+}

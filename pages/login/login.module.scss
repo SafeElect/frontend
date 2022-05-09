@@ -1,0 +1,64 @@
+.wrapper {
+  margin-top: 220px;
+  margin-bottom: 550px;
+  justify-content: center;
+  display: flex;
+  video{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  .loginBox {
+    border-radius: 15px;
+    height: 400px;
+    width: 400px;
+    background: #ff4b1f; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #ff9068,
+      #ff4b1f
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #ff9068,
+      #ff4b1f
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding: 15px;
+    text-align: center;
+    img {
+      width: 130px;
+      margin-bottom: 15px;
+    }
+    input {
+      // text-align: left;
+      margin-bottom: 40px;
+      height: 50px;
+      width: 300px;
+      font-family: "Poppins";
+      font-size: 13px;
+      border: unset;
+      border-radius: 10px;
+      background: lightgray;
+      font-weight: bolder;
+    }
+    button {
+      width: 150px;
+      height: 40px;
+      background: lightblue;
+      border: unset;
+      border-radius: 15px;
+      font-family: "Poppins";
+      font-weight: bold;
+      &:hover {
+        background: #f64f59;
+      }
+    }
+  }
+}

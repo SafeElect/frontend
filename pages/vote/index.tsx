@@ -14,12 +14,19 @@ import Layout from "../../src/components/Layout/Layout";
 import Styles from "./vote.module.scss";
 import erc20abi from "../../assets/ERC20abi.json";
 import ErrorMessage from "./ErrorMessage";
+import { useRouter } from "next/router";
 
 function Vote() {
   const [showVote, setVoteShow] = useState(false);
+  const [currentIndex, setIndex] = useState();
+
+  const [voterData, setVoterData] = useState({});
 
   const handleVoteClose = () => setVoteShow(false);
-  const handleVoteShow = () => setVoteShow(true);
+  const handleVoteShow = (e) => {
+    setVoteShow(true);
+    setIndex(e.target.id);
+  };
 
   const [showTutorial, setTutorialShow] = useState(false);
 
@@ -30,8 +37,44 @@ function Vote() {
 
   const [contractInfo, setContractInfo] = useState({
     address: "-",
-    tokenName: "-",
+    chairperson: "-",
   });
+
+  const router = useRouter();
+
+  const [items, setItems] = useState([]);
+
+
+
+  useEffect(() => {
+
+    if (
+      typeof localStorage.items !== "undefined" &&
+      typeof localStorage.getItem("items") !== null
+    ) {
+      const itemsTemp = JSON.parse(localStorage.getItem("items") + "");
+  
+      setVoterData(itemsTemp);
+      // console.log(voterData);
+    }
+    
+    if (
+      typeof localStorage.items !== "undefined" &&
+      typeof localStorage.getItem("success") !== null
+    ) {
+      // console.log(localStorage.items);
+      console.log(localStorage.getItem("success"));
+      if (localStorage.getItem("success") === "false") {
+              
+        router.push({
+          pathname: `/login`,
+        });
+      }
+    } else {
+      
+      router.push("/login");
+    }
+  }, []);
 
   useEffect(() => {
     if (contractInfo.address !== "-") {
@@ -46,7 +89,7 @@ function Vote() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = "0xef28cf98a12b789180833067fac05d1065d4adb3";
+    const data = "0xa005965E98fFbee7Ef0656D7C199a861c1dC4642";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const erc20 = new ethers.Contract(data, erc20abi, provider);
@@ -55,18 +98,19 @@ function Vote() {
 
     setContractInfo({
       address: data,
-      tokenName: chairperson,
+      chairperson: chairperson,
     });
     // alert(e.target.id);
-    alert(chairperson);
+    // alert(chairperson);
   };
   const vote = async (e) => {
-    const data = "0xef28cf98a12b789180833067fac05d1065d4adb3";
+    const data = "0xa005965E98fFbee7Ef0656D7C199a861c1dC4642";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = await provider.getSigner();
     const erc20 = new ethers.Contract(data, erc20abi, signer);
-    await erc20.vote(e.target.id).catch(function (error) {
+    await erc20.vote(currentIndex).catch(function (error: any) {
+      alert(currentIndex);
       if (typeof error.data !== "undefined") {
         alert(error.data.message);
         setError(error.data.message);
@@ -78,6 +122,12 @@ function Vote() {
   return (
     <div className={Styles.votingPage}>
       <Container style={{ height: "100%" }}>
+        {/* <h1>{router.query.success}</h1> */}
+        <div className={Styles.topInfo}>
+          <h1>Voter: { voterData.first + " " + voterData.last}</h1>
+          <h2>Gender: {voterData.gender}</h2>
+          <h1>City: {voterData.bcity}</h1>
+        </div>
         <Container className={Styles.tutorial}>
           <Button
             variant="primary"
@@ -126,9 +176,7 @@ function Vote() {
               />
 
               <h1>Step 5:</h1>
-              <p>
-                After pressing confirm, you can leave the pooling booth.
-              </p>
+              <p>After pressing confirm, you can leave the pooling booth.</p>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleTutorialClose}>
@@ -172,6 +220,7 @@ function Vote() {
                     variant="primary"
                     onClick={handleVoteShow}
                     className={Styles.votingButton}
+                    id="0"
                   >
                     Vote
                   </Button>
@@ -217,7 +266,7 @@ function Vote() {
                 <Card.Body className={Styles.cardBody}>
                   <Card.Title>Imran Khan</Card.Title>
                   <div className="d-flex">
-                    <Col xl={{ span: 9 }} className="d-flex">
+                    <Col xl={{ span: 9 }} lg={{ span: 9 }} className="d-flex">
                       <Card.Text>
                         Division: NA-257
                         <br />
@@ -226,7 +275,7 @@ function Vote() {
                         City: Mianwali
                       </Card.Text>
                     </Col>
-                    <Col xl={{ span: 3 }}>
+                    <Col xl={{ span: 3 }} lg={{ span: 3 }}>
                       <img
                         src="/images/vote/ptiFlag.png"
                         alt=""
@@ -239,75 +288,7 @@ function Vote() {
                     variant="primary"
                     onClick={handleVoteShow}
                     className={Styles.votingButton}
-                  >
-                    Vote
-                  </Button>
-
-                  {/*MODEL FOR VOTING*/}
-                  <Modal
-                    show={showVote}
-                    onHide={handleVoteClose}
-                    className={Styles.confirmVoteModal}
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title>Confirm Your Vote</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <img
-                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                        alt=""
-                      />
-                      <h1>Do you want to vote for Imran Khan?</h1>
-                    </Modal.Body>
-                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
-                      <Button variant="secondary" onClick={handleVoteClose}>
-                        CLOSE
-                      </Button>
-                      <Button variant="primary" onClick={vote} id="1">
-                        VOTE
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                  {/*MODEL FOR VOTING*/}
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-
-          <Row className={Styles.votingPageRow}>
-            <Col className={Styles.cardCol}>
-              <Card style={{ width: "28rem" }} className={Styles.card}>
-                <Card.Img
-                  variant="top"
-                  src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                  className={Styles.mainImage}
-                />
-
-                <Card.Body className={Styles.cardBody}>
-                  <Card.Title>Imran Khan</Card.Title>
-                  <div className="d-flex">
-                    <Col xl={{ span: 9 }} className="d-flex">
-                      <Card.Text>
-                        Division: NA-257
-                        <br />
-                        Party: Pakistan Tehreek-e-Insaaf
-                        <br />
-                        City: Mianwali
-                      </Card.Text>
-                    </Col>
-                    <Col xl={{ span: 3 }}>
-                      <img
-                        src="/images/vote/ptiFlag.png"
-                        alt=""
-                        className={Styles.partySymbol}
-                      />
-                    </Col>
-                  </div>
-
-                  <Button
-                    variant="primary"
-                    onClick={handleVoteShow}
-                    className={Styles.votingButton}
+                    id="1"
                   >
                     Vote
                   </Button>
@@ -341,74 +322,9 @@ function Vote() {
                 </Card.Body>
               </Card>
             </Col>
-
-            <Col className={Styles.cardCol}>
-              <Card style={{ width: "28rem" }} className={Styles.card}>
-                <Card.Img
-                  variant="top"
-                  src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                  className={Styles.mainImage}
-                />
-
-                <Card.Body className={Styles.cardBody}>
-                  <Card.Title>Imran Khan</Card.Title>
-                  <div className="d-flex">
-                    <Col xl={{ span: 9 }} className="d-flex">
-                      <Card.Text>
-                        Division: NA-257
-                        <br />
-                        Party: Pakistan Tehreek-e-Insaaf
-                        <br />
-                        City: Mianwali
-                      </Card.Text>
-                    </Col>
-                    <Col xl={{ span: 3 }}>
-                      <img
-                        src="/images/vote/ptiFlag.png"
-                        alt=""
-                        className={Styles.partySymbol}
-                      />
-                    </Col>
-                  </div>
-
-                  <Button
-                    variant="primary"
-                    onClick={handleVoteShow}
-                    className={Styles.votingButton}
-                  >
-                    Vote
-                  </Button>
-
-                  {/*MODEL FOR VOTING*/}
-                  <Modal
-                    show={showVote}
-                    onHide={handleVoteClose}
-                    className={Styles.confirmVoteModal}
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title>Confirm Your Vote</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <img
-                        src="https://i.cnnturk.com/i/cnnturk/75/740x416/6252e18170380e179cf9f3d5.jpg"
-                        alt=""
-                      />
-                      <h1>Do you want to vote for Imran Khan?</h1>
-                    </Modal.Body>
-                    <Modal.Footer className={Styles.votingConfirmModalFooter}>
-                      <Button variant="secondary" onClick={handleVoteClose}>
-                        CLOSE
-                      </Button>
-                      <Button variant="primary" onClick={vote} id="1">
-                        VOTE
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                  {/*MODEL FOR VOTING*/}
-                </Card.Body>
-              </Card>
-            </Col>
           </Row>
+
+          <Row className={Styles.votingPageRow}></Row>
         </form>
       </Container>
     </div>

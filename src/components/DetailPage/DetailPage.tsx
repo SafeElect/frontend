@@ -17,7 +17,7 @@ const DetailPage = (props:any) => {
       {pageTitle ? (
         <Head>
           {" "}
-          <title>{pageTitle} | Dijital Çözüm Ortağı</title>{" "}
+          <title>{pageTitle}</title>{" "}
         </Head>
       ) : (
         <Head>
