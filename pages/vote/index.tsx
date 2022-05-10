@@ -134,16 +134,17 @@ function Vote() {
         xhr.open("POST", "http://localhost:8080/addstat", true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         console.log(voterData);
-
+        let teamNumber = 0;
+        teamNumber = parseInt(currentIndex)+1;
         xhr.send(JSON.stringify({
           gender: voterData.gender,
           age: 2022-voterData.bday.slice(0,4),
           bcity: voterData.bcity,
           area: voterData.address,
-          votedFor: 'Team '+(currentIndex+1),
+          votedFor: 'Team ' +teamNumber,
         }));
 
-        fetch('http://localhost:8080/candidate/'+currentIndex+1, {method: 'PUT',})
+        fetch('http://localhost:8080/candidate/'+teamNumber, {method: 'PUT',})
         fetch('http://localhost:8080/voter/v/'+voterData.id, {method: 'PUT',})
 
         router.push({
