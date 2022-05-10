@@ -15,11 +15,11 @@ import Styles from "./vote.module.scss";
 import erc20abi from "../../assets/ERC20abi.json";
 import ErrorMessage from "./ErrorMessage";
 import { useRouter } from "next/router";
-
+let currentIndex = 0;
 function Vote() {
   const [showVote, setVoteShow] = useState();
   // const [currentIndex, setIndex] = useState(0);
-  let currentIndex = "0";
+  
 
   const [voterData, setVoterData] = useState({});
 
@@ -91,7 +91,7 @@ function Vote() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = "0xa005965E98fFbee7Ef0656D7C199a861c1dC4642";
+    const data = "0xE7998bCFc63dAF22Db292a3E5Ee5569FD262C2eC";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const erc20 = new ethers.Contract(data, erc20abi, provider);
@@ -106,7 +106,7 @@ function Vote() {
     // alert(chairperson);
   };
   const vote = async (e) => {
-    const data = "0xa005965E98fFbee7Ef0656D7C199a861c1dC4642";
+    const data = "0xE7998bCFc63dAF22Db292a3E5Ee5569FD262C2eC";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = await provider.getSigner();
@@ -119,6 +119,10 @@ function Vote() {
           // alert(error.data.message);
           setError(error.data.message);
           alert(error.data.message + ". Please call the polling agent to assist you");
+          return Promise.reject("ERROR IN BLOCKCHAIN CALL");
+        }
+        if( error.code === 4001){
+          console.log("ITS WORKING!");
           return Promise.reject("ERROR IN BLOCKCHAIN CALL");
         }
       })
@@ -136,7 +140,7 @@ function Vote() {
           age: 2022-voterData.bday.slice(0,4),
           bcity: voterData.bcity,
           area: voterData.address,
-          votedFor: "Team "+(currentIndex+1),
+          votedFor: 'Team '+(currentIndex+1),
         }));
 
         fetch('http://localhost:8080/candidate/'+currentIndex+1, {method: 'PUT',})
