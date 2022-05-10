@@ -16,15 +16,17 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
-
+    setLoginMessage("");
 
     const id = e.target.id.value;
     const pass = e.target.pass.value;
     const response = await fetch("http://localhost:8080/voter/" + id);
     // console.log(response.status);
     const myJson = await response.json();
-    setLoginMessage("User Does Not Exist!");
+    if (response.status == 400) {
+      setLoginMessage("User Does Not Exist!");
+    }
+
     if (myJson.data != undefined) {
       bcrypt.compare(pass, myJson.data.pass, function (err: any, result: any) {
         // console.log(result);
