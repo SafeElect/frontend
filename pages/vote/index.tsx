@@ -29,7 +29,7 @@ function Vote() {
     setVoteShow(e.target.id);
     // setIndex(e.target.id);
     currentIndex = e.target.id;
-    alert(currentIndex);
+    // alert(currentIndex);
   };
   const tempFunc = (e) => {
     alert(e.target.id + " in temp");

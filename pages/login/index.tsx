@@ -12,14 +12,19 @@ const Login = () => {
   // });
   let items = "-";
   const router = useRouter();
+  const [loginMessage, setLoginMessage] = useState("");
 
   const submitHandler = async (e) => {
     e.preventDefault();
 
+
+
     const id = e.target.id.value;
     const pass = e.target.pass.value;
     const response = await fetch("http://localhost:8080/voter/" + id);
+    // console.log(response.status);
     const myJson = await response.json();
+    setLoginMessage("User Does Not Exist!");
     if (myJson.data != undefined) {
       bcrypt.compare(pass, myJson.data.pass, function (err: any, result: any) {
         // console.log(result);
@@ -48,6 +53,8 @@ const Login = () => {
           }
         } else {
           localStorage.setItem("success", JSON.stringify(false));
+          // alert("Wrong Credentials");
+          setLoginMessage("Please Try Again");
         }
       });
     }
@@ -66,6 +73,7 @@ const Login = () => {
             <input placeholder="Password" type={"password"} name="pass"></input>
             <br />
             <button type="submit">Login</button>
+            <p>{loginMessage}</p>
           </form>
         </div>
       </div>
