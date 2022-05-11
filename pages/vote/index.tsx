@@ -123,6 +123,7 @@ function Vote() {
         }
         if( error.code === 4001){
           console.log("ITS WORKING!");
+          alert("You Rejected The Vote");
           return Promise.reject("ERROR IN BLOCKCHAIN CALL");
         }
       })
