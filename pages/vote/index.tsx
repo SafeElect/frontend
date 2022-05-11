@@ -1054,14 +1054,14 @@ function Vote() {
                     variant="primary"
                     onClick={handleVoteShow}
                     className={Styles.votingButton}
-                    id="9"
+                    id="12"
                   >
                     Vote
                   </Button>
 
                   {/*MODEL FOR VOTING*/}
                   <Modal
-                    show={showVote === "9"}
+                    show={showVote === "12"}
                     onHide={handleVoteClose}
                     className={Styles.confirmVoteModal}
                   >
@@ -1076,7 +1076,7 @@ function Vote() {
                       <Button variant="secondary" onClick={handleVoteClose}>
                         CLOSE
                       </Button>
-                      <Button variant="primary" onClick={vote} id="9">
+                      <Button variant="primary" onClick={vote} id="12">
                         VOTE
                       </Button>
                     </Modal.Footer>
