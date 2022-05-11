@@ -91,7 +91,7 @@ function Vote() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = "0xE7998bCFc63dAF22Db292a3E5Ee5569FD262C2eC";
+    const data = "0xaa92a0770121131db57e175de18af0ef2dd63a7f";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
     const erc20 = new ethers.Contract(data, erc20abi, provider);
@@ -106,7 +106,7 @@ function Vote() {
     // alert(chairperson);
   };
   const vote = async (e) => {
-    const data = "0xE7998bCFc63dAF22Db292a3E5Ee5569FD262C2eC";
+    const data = "0xaa92a0770121131db57e175de18af0ef2dd63a7f";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
     const signer = await provider.getSigner();
