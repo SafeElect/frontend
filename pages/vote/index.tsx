@@ -693,7 +693,7 @@ function Vote() {
               <Card style={{ width: "28rem" }} className={Styles.card}>
                 <Card.Img
                   variant="top"
-                  src="https://i.ibb.co/xjNpXVB/Team5.jpg"
+                  src="https://i.ibb.co/z6hkbWR/Team8.jpg"
                   className={Styles.mainImage}
                 />
 
@@ -738,7 +738,7 @@ function Vote() {
                       <Modal.Title>Confirm Your Vote</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                      <img src="https://i.ibb.co/xjNpXVB/Team5.jpg" alt="" />
+                      <img src="https://i.ibb.co/z6hkbWR/Team8.jpg" alt="" />
                       <h1>Do you want to vote for SEMT?</h1>
                     </Modal.Body>
                     <Modal.Footer className={Styles.votingConfirmModalFooter}>
